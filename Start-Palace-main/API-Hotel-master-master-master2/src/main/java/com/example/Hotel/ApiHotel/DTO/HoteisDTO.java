@@ -16,7 +16,7 @@ public class HoteisDTO {
 
     private String nome;
     private String localizacao;
-    private Integer quatidadeQuarto;
+    private Integer quantidadeQuarto;
     private Double pagamento;
     private String infoPagamento;
     private String infoOperacinal;
@@ -27,7 +27,7 @@ public class HoteisDTO {
                 .id(id)
                 .nome(nome)
                 .localizacao(localizacao)
-                .quantidadeQuarto(quatidadeQuarto)
+                .quantidadeQuarto(quantidadeQuarto)
                 .pagamento(pagamento)
                 .infoPagamento(infoPagamento)
                 .infoOperacinal(infoOperacinal)

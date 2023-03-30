@@ -27,9 +27,10 @@ import java.util.stream.Collectors;
    private HotelService hotelService;
 
    @PostMapping("/hoteis")
-    public ResponseEntity<HoteisDTO> addHoteis(@RequestBody @Valid HoteisDTO h) {
+    public ResponseEntity<HoteisDTO> addHoteis(@RequestBody  HoteisDTO h) {
         return hotelService.adicionarHotel(h);
     }
+
 
 
    @PutMapping("/hoteis/{id}/atualize")

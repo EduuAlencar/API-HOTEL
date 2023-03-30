@@ -14,6 +14,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -38,6 +39,7 @@ public class ClientDAO {
     @NotEmpty
     private String senha;
     @NotBlank
+    @Size(min = 3,max = 25, message = "Apelidos nao são validos")
     private String nome;
     private String sobrenome;
     private String telefone;

@@ -19,10 +19,10 @@ public class HoteisDAO {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    @NotBlank
+
     private String nome;
     private String localizacao;
-    @NotEmpty
+
     private Integer quantidadeQuarto;
     private Double pagamento;
     private String infoPagamento;
@@ -34,7 +34,7 @@ public class HoteisDAO {
                 .id(id)
                 .nome(nome)
                 .localizacao(localizacao)
-                .quatidadeQuarto(quantidadeQuarto)
+                .quantidadeQuarto(quantidadeQuarto)
                 .pagamento(pagamento)
                 .infoPagamento(infoPagamento)
                 .infoOperacinal(infoOperacinal)
