@@ -49,9 +49,9 @@ public class ReservaController {
         return reservaService.ObterReserva(id);
     }
 
-    @DeleteMapping("/reserva/{id}/excluir")
-    public ResponseEntity<ReservaDTO> deleteReservaById(Long idReserva) {
-        return reservaService.deletarReserva(idReserva);
+    @DeleteMapping("/reservas/{id}")
+    public ResponseEntity<ReservaDTO> deleteReservaById(@PathVariable ("id") Long id) {
+        return reservaService.deletarReserva(id);
     }
 
 

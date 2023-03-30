@@ -3,6 +3,8 @@ package com.example.Hotel.ApiHotel.Models;
 
 import com.example.Hotel.ApiHotel.DTO.HoteisDTO;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 
 @Entity(name = "Hotel")
@@ -17,8 +19,10 @@ public class HoteisDAO {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+    @NotBlank
     private String nome;
     private String localizacao;
+    @NotEmpty
     private Integer quantidadeQuarto;
     private Double pagamento;
     private String infoPagamento;

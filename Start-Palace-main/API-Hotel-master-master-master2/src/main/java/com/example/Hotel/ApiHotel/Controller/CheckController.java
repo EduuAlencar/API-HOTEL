@@ -26,26 +26,32 @@ public class CheckController {
     @Autowired
     private CheckService checkService;
 
+
    @PostMapping
    @ResponseStatus(HttpStatus.CREATED)
    public ResponseEntity<CheckDTO> addCheck (@RequestBody @Valid CheckDTO c){
-
        return checkService.adicionarCheck(c);
     }
-    @PutMapping ("{id}/atualizar")
-    public ResponseEntity<CheckDTO> updateCheck(@PathVariable Long id,
-                                                @RequestBody CheckDTO c){
-       return checkService.atualizarCheck(id,c);
+
+
+    @PutMapping("/{id}/atualizar")
+    public ResponseEntity<CheckDTO> updateCheck(@PathVariable ("id") Long id,@RequestBody CheckDTO ck){
+       return checkService.atualizarChecks(id,ck);
     }
-  @GetMapping
+
+
+   @GetMapping
     public ResponseEntity<List<CheckDTO>> getAllCheckout(){
        return checkService.obterChecks();
     }
 
+
     @DeleteMapping("/{id}/excluir")
-    public ResponseEntity<CheckDTO> deleteCheckById(@PathVariable  Long id){
-        return checkService.deletarCheck(id);
+    public ResponseEntity<CheckDTO> deleteCheckById(@PathVariable ("id") Long id){
+        return checkService.deleteCheckById(id);
     }
+
+
     @GetMapping("/{id}/buscar")
     public ResponseEntity<CheckDTO>IdCheck(@PathVariable Long id){
        return checkService.obterCheck(id);

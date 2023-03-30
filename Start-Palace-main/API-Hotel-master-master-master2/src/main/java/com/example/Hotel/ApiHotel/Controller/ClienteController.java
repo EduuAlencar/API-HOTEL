@@ -28,7 +28,7 @@ public class ClienteController {
     @PutMapping ("/clients/{id}/atualizar")
     public ResponseEntity<ClientDTO> updateClient(@PathVariable("id") Long id,
                                                   @RequestBody ClientDTO c){
-        return clienteService.atualizarCliente(id, c);
+        return clienteService.atualizarCliente(id,c);
     }
 
     @GetMapping("/clientsall")

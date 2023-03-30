@@ -21,9 +21,6 @@ public class CheckDAO {
     private Long idCheck;
     @JoinColumn(name = "idreserva")
     private Long idReserva;
-    @OneToOne
-    @JoinColumn(name = "idCliente")
-    private ClientDAO idCliente;
 
     private String horarioCheckIn;
     private String horarioCheckOut;
@@ -38,7 +35,6 @@ public class CheckDAO {
                 .builder()
                 .idCheck(idCheck)
                 .idReserva(idReserva)
-                .idCliente(idCliente)
                 .horarioCheckIn(horarioCheckIn)
                 .horarioCheckOut(horarioCheckOut)
                 .quantCart(quantCart)

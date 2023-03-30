@@ -1,7 +1,9 @@
 package com.example.Hotel.ApiHotel.service;
 
 import com.example.Hotel.ApiHotel.DTO.CheckDTO;
+import com.example.Hotel.ApiHotel.DTO.ClientDTO;
 import com.example.Hotel.ApiHotel.Models.CheckDAO;
+import com.example.Hotel.ApiHotel.Models.ClientDAO;
 import com.example.Hotel.ApiHotel.repository.CheckRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,13 +30,19 @@ public class CheckService {
         return new ResponseEntity<CheckDTO>(checkPersisted.toDTO(), HttpStatus.CREATED);
     }
 
-    public ResponseEntity<CheckDTO>atualizarCheck(Long id, CheckDTO c){
-        CheckDAO checkoutUpdate=  new CheckDAO();
-        c.setIdCheck(id);
-        checkoutUpdate.setHorarioCheckIn(c.getHorarioCheckIn());
-        CheckDAO checkout = checkRepository.save(c.toDAO());
+  /*  public ResponseEntity<CheckDTO> updateCheck(Long id, CheckDTO cks){
+        CheckDAO checkoutUpdate = new CheckDAO();
+        cks.setIdCheck(id);
+        checkoutUpdate.setHorarioCheckIn(cks.getHorarioCheckIn());
+        CheckDAO checkout = checkRepository.save(cks.toDAO());
         return new ResponseEntity<CheckDTO>(checkoutUpdate.toDTO(), HttpStatus.OK);
 
+    }*/
+
+    public ResponseEntity<CheckDTO> atualizarChecks(Long id, CheckDTO cks){
+        cks.setIdCheck(id);
+        CheckDAO checkAtualiza = checkRepository.save(cks.toDAO());
+        return new ResponseEntity<CheckDTO>(checkAtualiza.toDTO(), HttpStatus.OK);
     }
 
 
@@ -45,7 +53,7 @@ public class CheckService {
                 .collect(Collectors.toList()));
     }
 
-    public ResponseEntity<CheckDTO> deletarCheck( Long idCheck){
+    public ResponseEntity<CheckDTO> deleteCheckById(@PathVariable("id") Long idCheck){
         CheckDAO check = checkRepository.findById(idCheck).get();
         check.setIdCheck(idCheck);
         check.fazerCheckOut();

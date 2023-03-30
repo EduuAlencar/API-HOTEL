@@ -12,7 +12,6 @@ public class CheckDTO {
     private Long idCheck;
     private Long idReserva;
 
-    private ClientDAO idCliente;
     private String horarioCheckIn;
     private String horarioCheckOut;
     private Integer quantCart;
@@ -24,7 +23,6 @@ public class CheckDTO {
                 .builder()
                 .idCheck(idCheck)
                 .idReserva(idReserva)
-                .idCliente(idCliente)
                 .horarioCheckIn(horarioCheckIn)
                 .horarioCheckOut(horarioCheckOut)
                 .quantCart(quantCart)
@@ -44,7 +42,6 @@ public class CheckDTO {
     public CheckDTO( CheckDAO horizontePlanejamento){
         idCheck = getIdCheck();
         idReserva = getIdReserva();
-        idCliente = getIdCliente();
         horarioCheckIn = getHorarioCheckIn();
         horarioCheckOut = getHorarioCheckOut();
         quantCart = getQuantCart();

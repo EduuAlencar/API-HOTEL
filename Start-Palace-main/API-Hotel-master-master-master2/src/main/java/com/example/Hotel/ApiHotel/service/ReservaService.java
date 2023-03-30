@@ -1,6 +1,8 @@
 package com.example.Hotel.ApiHotel.service;
 
+import com.example.Hotel.ApiHotel.DTO.ClientDTO;
 import com.example.Hotel.ApiHotel.DTO.ReservaDTO;
+import com.example.Hotel.ApiHotel.Models.ClientDAO;
 import com.example.Hotel.ApiHotel.Models.ReservaDAO;
 import com.example.Hotel.ApiHotel.repository.ClientRepository;
 import com.example.Hotel.ApiHotel.repository.ReservaRepository;
@@ -51,10 +53,12 @@ public class ReservaService {
         }
     }
 
-    public ResponseEntity<ReservaDTO> deletarReserva(@PathVariable Long idReserva) {
+    public ResponseEntity<ReservaDTO> deletarReserva(@PathVariable Long id) {
         ReservaDAO reserva = new ReservaDAO();
-        reserva.setIdReserva(idReserva);
+        reserva.setIdReserva(id);
         reservaRepository.delete(reserva);
         return ResponseEntity.noContent().build();
     }
+
+
 }
